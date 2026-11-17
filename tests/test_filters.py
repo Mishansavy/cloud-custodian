@@ -585,6 +585,8 @@ class TestValueTypes(BaseFilterTest):
         self.assertFilter(fdata, i("1.9.13"), False)
         self.assertFilter(fdata, i("1.9.11"), True)
         self.assertFilter(fdata, i("1.1"), True)
+        # missing key must not raise AttributeError
+        self.assertFilter(fdata, instance(), False)
 
     def test_duration(self):
         fdata = {

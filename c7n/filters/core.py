@@ -877,7 +877,7 @@ class ValueFilter(BaseValueFilter):
         # Allows for comparing version numbers, for things that you expect a minimum version number.
         elif self.vtype == 'version':
             s = ComparableVersion(sentinel)
-            v = ComparableVersion(value)
+            v = ComparableVersion(value) if value is not None else None
             return s, v
 
         return sentinel, value
